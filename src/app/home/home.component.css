@@ -1,0 +1,17 @@
+button {
+    padding: 10px;
+    margin: 10px;
+    border: solid 1px black;
+    background: black;
+    color: white;
+    border-radius: 8px;
+    width: 100px;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
