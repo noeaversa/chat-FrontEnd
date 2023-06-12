@@ -1,0 +1,12 @@
+#user-container{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    border-bottom: 1px solid gray;
+    align-items: center;
+}
+
+button {
+    height: 20px;
+    margin: 10px;
+}

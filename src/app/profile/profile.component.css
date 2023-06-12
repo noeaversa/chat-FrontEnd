@@ -1,0 +1,17 @@
+#contacto-container {
+    flex-direction: column;
+    border-bottom: 1px solid gray;
+    width: 20%;
+}
+
+#add-user {
+    border: 2px solid darkcyan;
+    border-radius: 5px;
+    margin: 20px;
+    background-color: white;
+}
+
+.clicked {
+    background-color: green;
+    color: white;
+}

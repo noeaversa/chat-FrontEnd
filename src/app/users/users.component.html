@@ -1,0 +1,6 @@
+<h3>AÑADIR CONTACTOS</h3>
+<div id="user-container" *ngFor="let user of getUsers()">
+    <p>{{user}}</p>
+    <button (click)="addContact(user)" [ngClass]="{'clicked': isClicked}">+</button>
+</div>
+<button (click)="addNewContacts()">Agregar a contactos</button>

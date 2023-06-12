@@ -1,0 +1,7 @@
+<div style="display: flex;">
+    <h3>Contactos</h3>
+    <button id="add-user" routerLink="/usuarios" routerLinkActive="active" ariaCurrentWhenActive="page">+</button>
+</div>
+<li id="contacto-container" *ngFor="let contacto of getContactos()">
+    <p>{{contacto}}</p>
+</li>

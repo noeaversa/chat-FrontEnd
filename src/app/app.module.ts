@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     HomeComponent,
-    LogInComponent
+    LogInComponent,
+    ProfileComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
