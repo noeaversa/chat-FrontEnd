@@ -1,17 +1,26 @@
+#container-nav{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(194, 136, 165);
+    justify-content:space-between;
+    width: 100%;
+}
+
+#nombre-programa{
+    justify-content: end;
+}
+
 #contacto-container {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
     border-bottom: 1px solid gray;
     width: 20%;
+    justify-content:space-between;
 }
 
 #add-user {
-    border: 2px solid darkcyan;
+    border: 2px solid rgb(194, 136, 165);
     border-radius: 5px;
     margin: 20px;
     background-color: white;
-}
-
-.clicked {
-    background-color: green;
-    color: white;
 }

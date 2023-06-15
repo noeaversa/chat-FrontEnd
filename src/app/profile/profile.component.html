@@ -1,7 +1,19 @@
+<div id="container-nav">
+    <p>Bienvenido {{getNombreUser()}}</p>
+    <button style="justify-content: flex-end; cursor: pointer; margin: 7px;" (click)="deleteAccount()">Eliminar cuenta</button>
+</div>
 <div style="display: flex;">
     <h3>Contactos</h3>
-    <button id="add-user" routerLink="/usuarios" routerLinkActive="active" ariaCurrentWhenActive="page">+</button>
+    <button id="add-user" routerLink="/usuarios" routerLinkActive="active" ariaCurrentWhenActive="page" style="cursor: pointer;">+</button>
 </div>
 <li id="contacto-container" *ngFor="let contacto of getContactos()">
     <p>{{contacto}}</p>
+    <button 
+        style="justify-content: flex-end; background: none; border: none; cursor: pointer;" 
+        [id]="[contacto]"
+        (click)="goToMessage(contacto)"
+    >✉️</button>
 </li>
+<div style="display: flex; justify-content: baseline; top: 0;">
+    
+</div> 

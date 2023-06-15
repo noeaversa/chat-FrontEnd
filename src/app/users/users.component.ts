@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -11,7 +12,7 @@ export class UsersComponent {
   private contacts: any;
   isClicked: boolean = false;
 
-  constructor(private service: ApiService) { 
+  constructor(private service: ApiService, private router: Router) { 
     this.users = [];
     this.contacts = [];
   }
@@ -30,7 +31,7 @@ export class UsersComponent {
             console.log(response)
             response.forEach((res: any) => {
               if(res.nombre != name_user && !this.contacts.includes(res.nombre))
-                this.users.push(res.nombre);
+                this.users.push({"nombre":res.nombre, "isClicked": false});
             });
           },
           error => {console.log(error)}
@@ -40,26 +41,26 @@ export class UsersComponent {
     )
   }
 
-  addContact(name: string){
-    if(!this.isClicked && !this.contacts.includes(name)){
-      this.contacts.push(name);
-      console.log(this.contacts);
-      this.isClicked = true
+  addContact(user: any){
+    if(!this.isClicked && !this.contacts.includes(user.nombre)){
+      this.contacts.push(user.nombre);
+      user.isClicked = true
     }
-    else
-      this.isClicked = false
+    else{
+      user.isClicked = false
+      this.contacts.pop(user.nombre)
+    }
   }
-
   addNewContacts(){
     const body = {
       "contactosNombres": this.contacts
     }
     this.service.addContactos(body).subscribe(
-      (response: any) => {console.log(response)},
+      (response: any) => {console.log(response); this.router.navigate(['/profile'])},
       error => {console.log(error)}
     )
   }
-
+  
   getUsers() {
     return this.users;
   }

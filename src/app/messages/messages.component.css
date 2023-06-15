@@ -1,0 +1,17 @@
+#container-send-message {
+    flex-direction: row; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border: 1px solid black; 
+}
+
+#input-message {
+    height:30px; 
+    border: none; 
+    width: 90%;
+}
+
+#input-message:focus {
+    outline: none;
+}

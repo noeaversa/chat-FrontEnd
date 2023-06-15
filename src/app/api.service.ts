@@ -11,6 +11,7 @@ export class ApiService {
   
   constructor(private http: HttpClient, private router: Router) { }
 
+ // users 
   public getAllUsers(){
     const headers = this.configHeaders();
     return this.http.get(`${this.url_basic}/usuarios`, {headers});
@@ -26,7 +27,7 @@ export class ApiService {
   public addContactos(bodyContent: object){
     var user_name_str = localStorage.getItem("user_name");
     const headers = this.configHeaders();
-    const url_patch_contacto = `${this.url_basic}/usuarios/${user_name_str}`
+    const url_patch_contacto = `${this.url_basic}/usuarios/${user_name_str}`;
     return this.http.patch(url_patch_contacto, bodyContent, {headers});
   }
 
@@ -38,6 +39,12 @@ export class ApiService {
   public logIn(nombre: string, contra: string){
     const url_logIn = `${this.url_basic}/usuarios/login`;
     this.userEnter(url_logIn, nombre, contra);
+  }
+
+  public deleteUser(nombre: string){
+    const url_delete = `${this.url_basic}/usuarios/${nombre}`;
+    const headers = this.configHeaders();
+    return this.http.delete(url_delete, {headers});
   }
 
   private userEnter(url: any, nombre: string, contra: string){
@@ -56,6 +63,28 @@ export class ApiService {
     )
   }
 
+// messages:
+  public obtainChat(user_sender: string | null, user_receiver: string | null){
+    const url_chat = `${this.url_basic}/usuarios/${user_receiver}/${user_sender}/recibirChat`;
+    console.log(url_chat)
+    const headers = this.configHeaders();
+    return this.http.get(url_chat, {headers});
+  };
+
+  public postChat(bodyContent: object){
+    const url_post_chat =  `${this.url_basic}/mensajes`;
+    const headers = this.configHeaders();
+    return this.http.post(url_post_chat, bodyContent, {headers});
+  }
+
+  public deleteMessage(id: any){
+    const url_delete_mensaje = `${this.url_basic}/mensajes/${id}`;
+    const headers = this.configHeaders();
+    return this.http.delete(url_delete_mensaje, {headers});
+  }
+
+  
+// config
   private configHeaders() {
     var token = localStorage.getItem("Authorization")
     var headers = new HttpHeaders();
